@@ -16,6 +16,7 @@ export class LocalWeatherPage {
   }
 
   public locationList: Array<any> = [
+    {city: 'Boston', state: 'MA'},
     {city: 'Los Angeles', state: 'CA'},
     {city: 'Miami', state: 'FL'},
     {city: 'New York', state: 'NY'},
@@ -36,8 +37,8 @@ export class LocalWeatherPage {
 
       } else {
         this.location = {
-          state: 'NY',
-          city: 'New York'
+          state: 'MA',
+          city: 'Boston'
         }
       }
 

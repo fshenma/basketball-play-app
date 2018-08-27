@@ -10,6 +10,7 @@ import {Keyboard} from '@ionic-native/keyboard';
 
 import {ActivityService} from "../services/activity-service";
 import {TripService} from "../services/trip-service";
+import {PlayerService} from "../services/player-service";
 import {WeatherProvider} from "../services/weather";
 
 import {MyApp} from "./app.component";
@@ -18,6 +19,7 @@ import {SettingsPage} from "../pages/settings/settings";
 import {CheckoutTripPage} from "../pages/checkout-trip/checkout-trip";
 import {HomePage} from "../pages/home/home";
 import {LoginPage} from "../pages/login/login";
+import {PlayersPage} from "../pages/players/players";
 import {NotificationsPage} from "../pages/notifications/notifications";
 import {RegisterPage} from "../pages/register/register";
 import {SearchLocationPage} from "../pages/search-location/search-location";
@@ -39,6 +41,7 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
     CheckoutTripPage,
     HomePage,
     LoginPage,
+    PlayersPage,
     LocalWeatherPage,
     NotificationsPage,
     RegisterPage,
@@ -66,6 +69,7 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
     CheckoutTripPage,
     HomePage,
     LoginPage,
+    PlayersPage,
     LocalWeatherPage,
     NotificationsPage,
     RegisterPage,
@@ -79,6 +83,7 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
     Keyboard,
     ActivityService,
     TripService,
+    PlayerService,
     WeatherProvider
   ]
 })

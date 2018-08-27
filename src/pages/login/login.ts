@@ -23,6 +23,28 @@ export class LoginPage {
     this.nav.setRoot(HomePage);
   }
 
+  // login and go to home page
+  socialLogin(socialProvider) {
+
+//     authService.thirdPartyLogin(provider).then(function (result) {
+//                     $scope.userData = result.user;
+//                     angular.element('body').removeClass('isLoggedIn');
+//                     //                    angular.element('body').addClass('isPlay');
+//                     $location.path('/playMove');
+
+//                 }).catch(function (error) {
+                    // Handle Errors here.
+//                     var errorCode = error.code;
+//                     var errorMessage = error.message;
+//                     // The email of the user's account used.
+//                     $scope.loginMessage = errorMessage;
+
+//                     $scope.loginBusy = false;
+//                 });
+                
+    this.nav.setRoot(HomePage);
+  }
+
   forgotPass() {
     let forgot = this.forgotCtrl.create({
       title: 'Forgot Password?',

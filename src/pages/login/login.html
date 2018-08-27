@@ -6,7 +6,7 @@
     <div padding-horizontal text-center class="animated fadeInDown">
       <div class="logo"></div>
       <h2 ion-text class="text-primary">
-        <strong>Ionic 3</strong> Start Theme
+        <strong>basket game</strong> portal
       </h2>
     </div>
 
@@ -42,17 +42,17 @@
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <button ion-button icon-only block class="btn-facebook">
+            <button ion-button icon-only block class="btn-facebook" (click)="socialLogin('facebook')">
               <ion-icon name="logo-facebook"></ion-icon>
             </button>
           </ion-col>
           <ion-col col-4>
-            <button ion-button icon-only block class="btn-twitter">
+            <button ion-button icon-only block class="btn-twitter" (click)="socialLogin('twitter')">
               <ion-icon name="logo-twitter"></ion-icon>
             </button>
           </ion-col>
           <ion-col col-4>
-            <button ion-button icon-only block class="btn-gplus">
+            <button ion-button icon-only block class="btn-gplus" (click)="socialLogin('google')">
               <ion-icon name="logo-googleplus"></ion-icon>
             </button>
           </ion-col>
