@@ -1,0 +1,108 @@
+<!--
+  Generated template for the GameOnCourtPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <!-- 
+  <ion-navbar>
+    <ion-title>GameOnCourt</ion-title>
+  </ion-navbar> -->
+
+  <ion-navbar no-border-bottom >
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title >Game On Court</ion-title>
+    <!-- <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        Favorites
+      </ion-segment-button>
+    </ion-segment>
+  
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentFilter()">
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+
+    <ion-segment [(ngModel)]="appType">
+      <ion-segment-button value="Score">
+        Score Board
+      </ion-segment-button>
+      <ion-segment-button value="Players">
+        Players
+      </ion-segment-button>
+      <ion-segment-button value="TeamStat">
+        Team Stats
+      </ion-segment-button>
+    </ion-segment>
+
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list >
+    <ng-container *ngFor="let item of getItems(appType)">
+    <ion-list-header >{{ appType }}
+      <button ion-button icon-only item-end (click)="load( item.loadFunc )">
+        <ion-icon name= "{{item.iconName}}"></ion-icon>
+      </button>
+    </ion-list-header>
+    <ion-item  >
+        
+      <!-- {{ item.content }} -->
+      <ion-card>
+        <ion-card-header>
+          {{ item.content }}
+          <ion-buttons end>
+            <!-- <button ion-button tappable (click)="presentNotifications($event)">
+              <ion-icon name="notifications"></ion-icon>
+            </button> -->
+            <button ion-button tappable (click)="rotate()">
+              <ion-icon name="aperture"></ion-icon>
+            </button>
+            <button ion-button tappable (click)="clearCourt()">
+              <ion-icon name="refresh"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- <ion-segment [(ngModel)]="safari" color="dark">
+            <ion-segment-button value="Bookmarks">
+              <ion-icon name="book"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="Reading List">
+              <ion-icon ios="ios-glasses-outline" md="md-glasses"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="Shared Links">
+              <ion-icon ios="ios-at-outline" md="md-at"></ion-icon>
+            </ion-segment-button>
+          </ion-segment> -->
+          <ion-list style="margin: 0" inset>
+            <!-- <player-oncourt-component *ngFor="let player of ongamePlayers" [player] = player></player-oncourt-component> -->
+            <button ion-item *ngFor="let player of ongamePlayers">
+              <ion-icon item-start [name]="ball" color="primary"></ion-icon>
+              {{ player.playerNum }}  {{ player.first_name }} {{ player.last_name }}
+            </button>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- <button ion-button outline item-end>{{ item.price }}</button> -->
+    </ion-item>
+  </ng-container>
+  </ion-list>
+
+  
+</ion-content>

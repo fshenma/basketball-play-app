@@ -1,7 +1,8 @@
-import {Component} from "@angular/core";
-import {NavController, AlertController, ToastController, MenuController} from "ionic-angular";
-import {HomePage} from "../home/home";
-import {RegisterPage} from "../register/register";
+import { Component } from "@angular/core";
+import { NavController, AlertController, ToastController, MenuController } from "ionic-angular";
+import { HomePage } from "../home/home";
+import { RegisterPage } from "../register/register";
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'page-login',
@@ -9,7 +10,7 @@ import {RegisterPage} from "../register/register";
 })
 export class LoginPage {
 
-  constructor(public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, public toastCtrl: ToastController) {
+  constructor(public nav: NavController, public forgotCtrl: AlertController, public menu: MenuController, private auth: AuthService, public toastCtrl: ToastController) {
     this.menu.swipeEnable(false);
   }
 
@@ -23,25 +24,39 @@ export class LoginPage {
     this.nav.setRoot(HomePage);
   }
 
+  loginWithGoogle() {
+    this.auth.signInWithGoogle()
+      .then((result) => {
+        console.log(result);
+        this.nav.setRoot(HomePage);
+      }
+      )
+      .catch(
+        error => console.log(error.message)
+      );
+  }
+
+
+
   // login and go to home page
   socialLogin(socialProvider) {
 
-//     authService.thirdPartyLogin(provider).then(function (result) {
-//                     $scope.userData = result.user;
-//                     angular.element('body').removeClass('isLoggedIn');
-//                     //                    angular.element('body').addClass('isPlay');
-//                     $location.path('/playMove');
+    //     authService.thirdPartyLogin(provider).then(function (result) {
+    //                     $scope.userData = result.user;
+    //                     angular.element('body').removeClass('isLoggedIn');
+    //                     //                    angular.element('body').addClass('isPlay');
+    //                     $location.path('/playMove');
 
-//                 }).catch(function (error) {
-                    // Handle Errors here.
-//                     var errorCode = error.code;
-//                     var errorMessage = error.message;
-//                     // The email of the user's account used.
-//                     $scope.loginMessage = errorMessage;
+    //                 }).catch(function (error) {
+    // Handle Errors here.
+    //                     var errorCode = error.code;
+    //                     var errorMessage = error.message;
+    //                     // The email of the user's account used.
+    //                     $scope.loginMessage = errorMessage;
 
-//                     $scope.loginBusy = false;
-//                 });
-                
+    //                     $scope.loginBusy = false;
+    //                 });
+
     this.nav.setRoot(HomePage);
   }
 

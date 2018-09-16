@@ -3,26 +3,26 @@ import {PLAYERS} from "./mock-players";
 
 @Injectable()
 export class PlayerService {
-  private players: any;
+  // private players: any;
 
-  constructor() {
-    this.players = PLAYERS;
-  }
+  // constructor() {
+  //   this.players = PLAYERS;
+  // }
 
-  getAll() {
-    return this.players;
+  getAllPlayers() {
+    return Promise.resolve (PLAYERS);
   }
 
   getItem(id) {
-    for (var i = 0; i < this.players.length; i++) {
-      if (this.players[i].id === parseInt(id)) {
-        return this.players[i];
+    for (var i = 0; i < PLAYERS.length; i++) {
+      if (PLAYERS[i].id === parseInt(id)) {
+        return PLAYERS[i];
       }
     }
     return null;
   }
 
   remove(item) {
-    this.players.splice(this.players.indexOf(item), 1);
+    PLAYERS.splice(PLAYERS.indexOf(item), 1);
   }
 }

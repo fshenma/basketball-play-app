@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {NavController, NavParams} from "ionic-angular";
 import {Storage} from '@ionic/storage';
+import { GameOnCourtPage } from "../game-on-court/game-on-court";
 
 // import {SearchCarsPage} from "../search-cars/search-cars";
 
@@ -61,6 +62,7 @@ export class SearchLocationPage {
       this.storage.set('dropOff', item.name);
     }
     // this.nav.push(SearchCarsPage);
-    this.nav.pop();
+    //this.nav.pop();
+    this.nav.setRoot(GameOnCourtPage);
   }
 }

@@ -8,7 +8,11 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { HomePage } from "../pages/home/home";
 import { LoginPage } from "../pages/login/login";
 import { PlayersPage } from "../pages/players/players";
+import { GamesPage } from "../pages/games/games";
+import {GameOnCourtPage} from "../pages/game-on-court/game-on-court";
 import { LocalWeatherPage } from "../pages/local-weather/local-weather";
+import { ConferenceData } from '../providers/conference-data';
+import { UserData } from '../providers/user-data';
 
 export interface MenuItem {
     title: string;
@@ -31,13 +35,23 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
+    public userData: UserData,
+    public confData: ConferenceData,
+    // public storage: Storage,
     public keyboard: Keyboard
   ) {
-    this.initializeApp();
+    // load the conference data
+    confData.load();
+
+    // decide which menu items should be hidden by current login status stored in local storage
+     
+    this.initializeApp(); 
 
     this.appMenuItems = [
       {title: 'Home', component: HomePage, icon: 'home'},
       {title: 'Players', component: PlayersPage, icon: 'people'},
+      {title: 'Games Scheduled', component: GamesPage, icon: 'calendar'},
+      {title: 'Game On Court', component: GameOnCourtPage, icon: 'basketball'},
       {title: 'Local Weather', component: LocalWeatherPage, icon: 'partly-sunny'}
     ];
   }
@@ -54,6 +68,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.statusBar.overlaysWebView(false);
 
+      
       //*** Control Keyboard
       this.keyboard.disableScroll(true);
     });

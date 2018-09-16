@@ -20,7 +20,7 @@
 
 <ion-content padding class="trips detail-bg">
   <!--list of players-->
-  <div class="card" *ngFor="let player of players" tappable (click)="viewDetail(player.id)" margin-bottom>
+  <div class="card"  *ngFor="let player of players" tappable (click)="viewDetail(player.id)" margin-bottom>
     <div class="card-header">Player</div>
       <div class="card-main">
       <ion-icon name="body" class="text-white"></ion-icon>
@@ -31,7 +31,7 @@
       <div class="background-filter rlt">
         <div class="align-bottom" padding-left padding-right>
           <h6 class="pull-left text-white" ion-text>{{ player.first_name }} {{ player.last_name }}</h6>
-<!--           <h6 class="pull-right text-white" ion-text>{{ player.price_adult | currency:'USD':true }}</h6> 
+           <h6 class="pull-right text-white" ion-text>{{ player.price_adult | currency:'USD':true }}</h6> 
           <div class="clear"></div>
         </div>
       </div>
@@ -39,7 +39,10 @@
     <div class="padding-sm primary-bg">
       <ion-icon name="body" class="text-white"></ion-icon>
       <span ion-text class="text-white">{{ player.membership }}</span>
-      <span class="pull-right" ion-text color="light"><strong>Player #: </strong>{{player.playerNum}}</span>
+      <span class="center-span" ion-text color="light"><strong>Player #: </strong>{{player.playerNum}}</span>
+      <span class="pull-right"  *ngIf = "isAdd" ion-text color="light"><strong>Add To Game </strong> 
+        <ion-icon name="add-circle" class="text-2x" tappable (click)="addPlayerToGame(player,$event)" ></ion-icon>
+      </span>
     </div>
   </div>
 </ion-content>
